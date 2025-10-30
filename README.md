@@ -3,7 +3,7 @@
 ## Project Overview
 
 **Project Title**: Retail Sales Analysis  
-**Database**: `p1_retail_db`
+**Database**: `SQL_project1_db`
 
 This project demonstrates SQL skills and techniques typically used by data analysts to explore, clean and analyze retail sales data. The project involves setting up a retail sales database, performing exploratory data analysis (EDA), and answering specific business questions through SQL queries.
 
@@ -24,20 +24,22 @@ This project demonstrates SQL skills and techniques typically used by data analy
 ```sql
 CREATE DATABASE SQL_project1;
 
-CREATE TABLE retail_sales
-(
-    transactions_id INT PRIMARY KEY,
-    sale_date DATE,	
-    sale_time TIME,
-    customer_id INT,	
-    gender VARCHAR(10),
-    age INT,
-    category VARCHAR(35),
-    quantity INT,
-    price_per_unit FLOAT,	
-    cogs FLOAT,
-    total_sale FLOAT
-);
+Drop table if exists retail_sales;
+create table retail_sales
+				(
+				
+				transactions_id int Primary key,
+				sale_date date,
+				sale_time time,
+				customer_id int,
+				gender varchar(15),
+				age int,
+				category varchar(15),
+				quantiy int,
+				price_per_unit float,
+				cogs float,
+				total_sale float
+				);
 ```
 
 ### 2. Data Exploration & Cleaning
@@ -49,7 +51,12 @@ CREATE TABLE retail_sales
 
 ```sql
 SELECT COUNT(*) FROM retail_sales;
+
+ALTER TABLE retail_sales
+RENAME COLUMN quantiy to quantity;
+
 SELECT COUNT(DISTINCT customer_id) FROM retail_sales;
+
 SELECT DISTINCT category FROM retail_sales;
 
 SELECT * FROM retail_sales
@@ -200,5 +207,6 @@ GROUP BY shift
 - **Customer Insights**: Reports on top customers and unique customer counts per category.
 
 ## Conclusion
+
 
 This project serves as a comprehensive introduction to SQL for data analysts, covering database setup, data cleaning, exploratory data analysis, and business-driven SQL queries. The findings from this project can help drive business decisions by understanding sales patterns, customer behavior, and product performance.
